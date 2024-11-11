@@ -1,0 +1,148 @@
+/* General body styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #FAFAFA;
+    color: #2E2E2E;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+/* Main container to center content */
+.container {
+    background-color: #FFFFFF;
+    width: 70%;
+    margin: 20px auto;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+/* Flex container to arrange text areas horizontally */
+.text-area-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Styling for individual text boxes */
+.text-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Heading styling */
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Textarea styling (similar to Notion blocks) */
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    background-color: #FAFAFA;
+    resize: none;  /* Prevent manual resizing */
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #A0A0A0;
+    outline: none;
+}
+
+/* Button styling */
+button {
+    background-color: #2D72E5;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2559B2;
+}
+
+/* Label styling */
+label {
+    font-size: 14px;
+    color: #6B6B6B;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Subtle separator between areas */
+hr {
+    border: none;
+    border-top: 1px solid #EAEAEA;
+    margin: 20px 0;
+}
+
+/* Copy button placement and margin */
+#copyButton {
+    margin-top: 10px;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8); /* Non-transparent background */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 20px auto ; /* Adjust margin to place it at the top */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 70%;
+    max-width: 600px;
+    max-height: 90vh; /* Set a maximum height */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: black;
+}

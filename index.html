@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgian Text Transliterator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Georgian Text Transliterator</h1>
+
+        <!-- Flex container for side-by-side text areas -->
+        <div class="text-area-container">
+            <div class="text-box">
+                <label for="sourceText">Georgian Text:</label>
+                <textarea id="sourceText" placeholder="Enter Georgian text here"></textarea>
+            </div>
+            <div class="text-box">
+                <label for="resultText">Transliteration:</label>
+                <textarea id="resultText" placeholder="The result will appear here" readonly></textarea>
+            </div>
+        </div>
+
+        <button id="copyButton" onclick="copyText()">Copy Transliteration</button>
+        <button id="helpButton" class="toolbar-button" title="Help">
+            Help
+        </button>
+    </div>
+
+    <script src="t.js"></script>
+
+    <!-- Help modal dialog -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Georgian Characters and Their Replacements</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Georgian Character</th>
+                        <th>Replacement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ა</td>
+                        <td>a</td>
+                    </tr>
+                    <tr>
+                        <td>ბ</td>
+                        <td>b</td>
+                    </tr>
+                    <tr>
+                        <td>გ</td>
+                        <td>g</td>
+                    </tr>
+                    <tr>
+                        <td>დ</td>
+                        <td>d</td>
+                    </tr>
+                    <tr>
+                        <td>ე</td>
+                        <td>e</td>
+                    </tr>
+                    <tr>
+                        <td>ვ</td>
+                        <td>v</td>
+                    </tr>
+                    <tr>
+                        <td>ზ</td>
+                        <td>z</td>
+                    </tr>
+                    <tr>
+                        <td>თ</td>
+                        <td>tʰ</td>
+                    </tr>
+                    <tr>
+                        <td>ი</td>
+                        <td>i</td>
+                    </tr>
+                    <tr>
+                        <td>კ</td>
+                        <td>k</td>
+                    </tr>
+                    <tr>
+                        <td>ლ</td>
+                        <td>l</td>
+                    </tr>
+                    <tr>
+                        <td>მ</td>
+                        <td>m</td>
+                    </tr>
+                    <tr>
+                        <td>ნ</td>
+                        <td>n</td>
+                    </tr>
+                    <tr>
+                        <td>ო</td>
+                        <td>o</td>
+                    </tr>
+                    <tr>
+                        <td>პ</td>
+                        <td>p</td>
+                    </tr>
+                    <tr>
+                        <td>ჟ</td>
+                        <td>ž</td>
+                    </tr>
+                    <tr>
+                        <td>რ</td>
+                        <td>r</td>
+                    </tr>
+                    <tr>
+                        <td>ს</td>
+                        <td>s</td> 
+                    </tr>
+                    <tr>
+                        <td>ტ</td>
+                        <td>t</td>
+                    </tr>
+                    <tr>
+                        <td>უ</td>
+                        <td>u</td>
+                    </tr>
+                    <tr>
+                        <td>ფ</td>
+                        <td>pʰ</td>
+                    </tr>
+                    <tr>
+                        <td>ქ</td>
+                        <td>kʰ</td>
+                    </tr>
+                    <tr>
+                        <td>ღ</td>
+                        <td>ğ</td>
+                    </tr>
+                    <tr>
+                        <td>ყ</td>
+                        <td>ҟ</td>
+                    </tr>
+                    <tr>
+                        <td>შ</td>
+                        <td>š</td>
+                    </tr>
+                    <tr>
+                        <td>ჩ</td>
+                        <td>č</td>
+                    </tr>
+                    <tr>
+                        <td>ც</td>
+                        <td>ʦ</td>
+                    </tr>
+                    <tr>
+                        <td>ძ</td>
+                        <td>ʣ</td>
+                    </tr>
+                    <tr>
+                        <td>წ</td>
+                        <td>ʨ</td>
+                    </tr>
+                    <tr>
+                        <td>ჭ</td>
+                        <td>ʧ</td>
+                    </tr>
+                    <tr>
+                        <td>ხ</td>
+                        <td>х</td>
+                    </tr>
+                    <tr>
+                        <td>ჯ</td>
+                        <td>ǰ</td>
+                    </tr>
+                    <tr>
+                        <td>ჰ</td>
+                        <td>h</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
