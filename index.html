@@ -3,181 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Georgian Text Transliterator</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Georgian Transliterator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .text-area-container {
+            display: flex;
+            gap: 20px;
+        }
+        .text-area-wrapper {
+            flex: 1;
+        }
+        textarea {
+            resize: none;
+            overflow-y: hidden;
+        }
+        .modal-body {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        #toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1050;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Georgian Text Transliterator</h1>
-
-        <!-- Flex container for side-by-side text areas -->
-        <div class="text-area-container">
-            <div class="text-box">
-                <label for="sourceText">Georgian Text:</label>
-                <textarea id="sourceText" placeholder="Enter Georgian text here"></textarea>
+    <div class="container mt-5">
+        <h1 class="mb-4">Georgian Transliterator</h1>
+        <div class="text-area-container mb-3">
+            <div class="text-area-wrapper">
+                <label for="georgianText" class="form-label">Georgian Text</label>
+                <textarea id="georgianText" class="form-control" rows="5" placeholder="Enter Georgian text here"></textarea>
+                <button id="helpBtn" class="btn btn-secondary mt-2">Help</button>
             </div>
-            <div class="text-box">
-                <label for="resultText">Transliteration:</label>
-                <textarea id="resultText" placeholder="The result will appear here" readonly></textarea>
+            <div class="text-area-wrapper">
+                <label for="transliteration" class="form-label">Transliteration</label>
+                <textarea id="transliteration" class="form-control" rows="5" readonly placeholder="The transliteration will appear here"></textarea>
+                <button id="copyBtn" class="btn btn-primary mt-2">Copy</button>
             </div>
         </div>
-
-        <button id="copyButton" onclick="copyText()">Copy Transliteration</button>
-        <button id="helpButton" class="toolbar-button" title="Help">
-            Help
-        </button>
     </div>
 
-    <script src="t.js"></script>
-
-    <!-- Help modal dialog -->
-    <div id="helpModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Georgian Characters and Their Replacements</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Georgian Character</th>
-                        <th>Replacement</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>ა</td>
-                        <td>a</td>
-                    </tr>
-                    <tr>
-                        <td>ბ</td>
-                        <td>b</td>
-                    </tr>
-                    <tr>
-                        <td>გ</td>
-                        <td>g</td>
-                    </tr>
-                    <tr>
-                        <td>დ</td>
-                        <td>d</td>
-                    </tr>
-                    <tr>
-                        <td>ე</td>
-                        <td>e</td>
-                    </tr>
-                    <tr>
-                        <td>ვ</td>
-                        <td>v</td>
-                    </tr>
-                    <tr>
-                        <td>ზ</td>
-                        <td>z</td>
-                    </tr>
-                    <tr>
-                        <td>თ</td>
-                        <td>tʰ</td>
-                    </tr>
-                    <tr>
-                        <td>ი</td>
-                        <td>i</td>
-                    </tr>
-                    <tr>
-                        <td>კ</td>
-                        <td>k</td>
-                    </tr>
-                    <tr>
-                        <td>ლ</td>
-                        <td>l</td>
-                    </tr>
-                    <tr>
-                        <td>მ</td>
-                        <td>m</td>
-                    </tr>
-                    <tr>
-                        <td>ნ</td>
-                        <td>n</td>
-                    </tr>
-                    <tr>
-                        <td>ო</td>
-                        <td>o</td>
-                    </tr>
-                    <tr>
-                        <td>პ</td>
-                        <td>p</td>
-                    </tr>
-                    <tr>
-                        <td>ჟ</td>
-                        <td>ž</td>
-                    </tr>
-                    <tr>
-                        <td>რ</td>
-                        <td>r</td>
-                    </tr>
-                    <tr>
-                        <td>ს</td>
-                        <td>s</td> 
-                    </tr>
-                    <tr>
-                        <td>ტ</td>
-                        <td>t</td>
-                    </tr>
-                    <tr>
-                        <td>უ</td>
-                        <td>u</td>
-                    </tr>
-                    <tr>
-                        <td>ფ</td>
-                        <td>pʰ</td>
-                    </tr>
-                    <tr>
-                        <td>ქ</td>
-                        <td>kʰ</td>
-                    </tr>
-                    <tr>
-                        <td>ღ</td>
-                        <td>ğ</td>
-                    </tr>
-                    <tr>
-                        <td>ყ</td>
-                        <td>ҟ</td>
-                    </tr>
-                    <tr>
-                        <td>შ</td>
-                        <td>š</td>
-                    </tr>
-                    <tr>
-                        <td>ჩ</td>
-                        <td>č</td>
-                    </tr>
-                    <tr>
-                        <td>ც</td>
-                        <td>ʦ</td>
-                    </tr>
-                    <tr>
-                        <td>ძ</td>
-                        <td>ʣ</td>
-                    </tr>
-                    <tr>
-                        <td>წ</td>
-                        <td>ʨ</td>
-                    </tr>
-                    <tr>
-                        <td>ჭ</td>
-                        <td>ʧ</td>
-                    </tr>
-                    <tr>
-                        <td>ხ</td>
-                        <td>х</td>
-                    </tr>
-                    <tr>
-                        <td>ჯ</td>
-                        <td>ǰ</td>
-                    </tr>
-                    <tr>
-                        <td>ჰ</td>
-                        <td>h</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="helpModalLabel">Georgian to 'Transliteration Guide'</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Georgian</th>
+                                <th>Transliteration</th>
+                            </tr>
+                        </thead>
+                        <tbody id="helpTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
+
+    <div id="toast" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Transliteration copied
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const georgianText = document.getElementById('georgianText');
+        const transliteration = document.getElementById('transliteration');
+        const helpBtn = document.getElementById('helpBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        const helpTableBody = document.getElementById('helpTableBody');
+        const toast = new bootstrap.Toast(document.getElementById('toast'));
+        const helpModal = new bootstrap.Modal(document.getElementById('helpModal'));
+
+        const transliterationMap = {
+            'ქ': 'kʰ', 'წ': 'ʦʼ', 'ჭ': 'čʼ', 'ე': 'e', 'რ': 'r', 'ღ': 'ğ', 'ტ': 'tʼ',
+            'თ': 'tʰ', 'ყ': 'ҟ', 'უ': 'u', 'ი': 'i', 'ო': 'o', 'პ': 'pʼ', 'ა': 'a',
+            'ს': 's', 'შ': 'š', 'დ': 'd', 'ფ': 'pʰ', 'გ': 'g', 'ჰ': 'h', 'ჯ': 'ǰ',
+            'ჟ': 'ž', 'კ': 'kʼ', 'ლ': 'l', 'ზ': 'z', 'ძ': 'ʣ', 'ხ': 'х', 'ც': 'ʦ',
+            'ჩ': 'č', 'ვ': 'v', 'ბ': 'b', 'ნ': 'n', 'მ': 'm'
+        };
+
+        function transliterate(text) {
+            return text.split('').map(char => transliterationMap[char] || char).join('');
+        }
+
+        function resizeTextAreas() {
+            georgianText.style.height = 'auto';
+            transliteration.style.height = 'auto';
+            const height = Math.max(georgianText.scrollHeight, transliteration.scrollHeight);
+            georgianText.style.height = `${height}px`;
+            transliteration.style.height = `${height}px`;
+        }
+
+        georgianText.addEventListener('input', () => {
+            transliteration.value = transliterate(georgianText.value);
+            resizeTextAreas();
+        });
+
+        helpBtn.addEventListener('click', () => {
+            helpTableBody.innerHTML = '';
+            Object.entries(transliterationMap)
+                .sort((a, b) => a[0].localeCompare(b[0], 'ka'))
+                .forEach(([georgian, trans]) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${georgian}</td><td>${trans}</td>`;
+                    helpTableBody.appendChild(row);
+                });
+            helpModal.show();
+        });
+
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(transliteration.value).then(() => {
+                toast.show();
+            });
+        });
+
+        window.addEventListener('load', resizeTextAreas);
+        window.addEventListener('resize', resizeTextAreas);
+
+        helpBtn.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                helpBtn.click();
+            }
+        });
+
+        copyBtn.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                copyBtn.click();
+            }
+        });
+
+        const focusableElements = [georgianText, transliteration, helpBtn, copyBtn];
+        let currentFocusIndex = 0;
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Tab') {
+            event.preventDefault();
+            currentFocusIndex = (currentFocusIndex + 1) % focusableElements.length;
+            focusableElements[currentFocusIndex].focus();
+          }
+        });
+
+        // Set initial focus
+        georgianText.focus();
+    </script>
 </body>
 </html>
